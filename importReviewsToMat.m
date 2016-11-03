@@ -17,6 +17,8 @@
 tic
 filename = 'Reviews.csv';
 startRow = 2;
-endRow = 11;
+endRow = 568455;
 [Id,ProductId,UserId,ProfileName,HelpfulnessNumerator,HelpfulnessDenominator,Score,Time,Summary,Text] = importfile(filename, startRow, endRow)
 toc
+
+save('variableWorkspace')
