@@ -1,6 +1,6 @@
 function [ ] = createScoreBarChart( Score )
-%UNTITLED4 Summary of this function goes here
-%   Detailed explanation goes here
+%Create a simple histogram of all of the reviews
+
 ratings = [0; 0; 0; 0; 0; 0];
 for i = 1:size(Score,1)
     switch Score(i)
@@ -18,8 +18,25 @@ for i = 1:size(Score,1)
             ratings(6) = ratings(6) + 1;
     end
     
-figure()
-scatter([1:6],ratings)
-    
 end
 
+figure()
+bar([1:5],ratings(1:5))
+barTitle = 'Overall Amazon Reviews';
+title(barTitle)
+xlabel('Reviews 1-5 Stars');
+ylabel('Count');
+
+% remove bad characters
+titleForFigureName = strrep(barTitle, ' ', '_');
+titleForFigureName = strrep(titleForFigureName, '#', '-');
+titleForFigureName = strrep(titleForFigureName, '/', '-');
+titleForFigureName = strrep(titleForFigureName, '%', '-');
+titleForFigureName = strrep(titleForFigureName, '&', '-');
+
+
+figureName = strcat(titleForFigureName, '.png');
+saveas(gcf,figureName)
+close(gcf)
+
+end

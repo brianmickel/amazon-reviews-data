@@ -15,10 +15,10 @@
 % Text - text of the review
 
 tic
-filename = 'Reviews.csv';
+filename = 'testReviews.csv';
 startRow = 2;
-endRow = 568455;
+endRow = 11;
 [Id,ProductId,UserId,ProfileName,HelpfulnessNumerator,HelpfulnessDenominator,Score,Time,Summary,Text] = importfile(filename, startRow, endRow)
 toc
 
-save('variableWorkspace')
+save('testVariableWorkspace')
