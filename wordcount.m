@@ -1,4 +1,4 @@
-function results = wordcount(words, num)
+function [results] = wordcount(words)
 
 % NAME: Wordcount (Written on Apr 8, 2008)
 %
@@ -85,19 +85,24 @@ end
 
 %% Finally, print out the results
 
-u_freq = unique(freq);
+%u_freq = unique(freq);
 
-sorted_freq = sort(u_freq, 'descend');
+%sorted_freq = sort(u_freq, 'descend');
 
 results={ 'WORD' 'FREQ' 'REL. FREQ' };
 
-for i = 1:min(numel(find(sorted_freq > 1)), num)
-    ind = find(freq == sorted_freq(i));
-    results{i+1, 1} = unique_words{ind};
-    results{i+1, 2} = unique(freq(ind));
-    results{i+1, 3} = sprintf('%.4f%s', unique(freq(ind)/numel(words))*100, '%');
-end
+resultsToSort = num2cell(freq);
+resultsToSort = horzcat(resultsToSort,unique_words);
+results = sortrows(resultsToSort,-1);
 
-sprintf('***NOTE: Only words that appeared more than once are displayed below\nTotal number of words in list = %d\nTotal number of unique words = %d', numel(words), numel(find(freq)));
+
+% for i = 1: numel(sorted_freq) % (numel(find(sorted_freq > 0)))
+%     ind = find(freq == sorted_freq(i));
+%     results{i+1, 1} = unique_words{ind};
+%     results{i+1, 2} = unique(freq(ind));
+%     results{i+1, 3} = sprintf('%.4f%s', unique(freq(ind)/numel(words))*100, '%');
+% end
+
+% sprintf('***NOTE: Only words that appeared more than once are displayed below\nTotal number of words in list = %d\nTotal number of unique words = %d', numel(words), numel(find(freq)));
 
 end

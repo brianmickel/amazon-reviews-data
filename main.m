@@ -1,14 +1,47 @@
 % Main
-load('testVariableWorkspace.mat')
-% createScoreBarChart( Score );
-[ Text ] = splitTextBySpaces( Text );
-[ helpfulWords, unhelpfulWords, neutralHelpfulWords ] = helpfulnessWordSplit( HelpfulnessNumerator, HelpfulnessDenominator, Text );
-[ positiveWords, negativeWords, neutralWords ] = descriptorWordSplit( Score, Text );
-checkWordTotals( positiveWords, negativeWords, neutralWords, helpfulWords, unhelpfulWords, neutralHelpfulWords );
-wordcount(positiveWords, 5)
-wordcount(negativeWords, 5)
-wordcount(neutralWords, 5)
+loadingTic  = tic
+load('testLargerVariableWorkspace.mat')
+loadingToc = toc(loadingTic)
 
-wordcount(helpfulWords, 5)
-wordcount(unhelpfulWords, 5)
-wordcount(neutralHelpfulWords, 5)
+% createScoreBarChart( Score );
+splitTextTic = tic
+[ Text ] = splitTextBySpaces( Text );
+splitTextToc = toc(splitTextTic)
+
+helpfulTextTic = tic
+[ helpfulWords, unhelpfulWords, neutralHelpfulWords ] = helpfulnessWordSplit( HelpfulnessNumerator, HelpfulnessDenominator, Text );
+helpfulTextToc = toc(helpfulTextTic)
+
+positiveTextTic = tic
+[ positiveWords, negativeWords, neutralWords ] = descriptorWordSplit( Score, Text );
+positiveTextToc = toc(positiveTextTic)
+
+checkTotalsTic = tic
+checkWordTotals( positiveWords, negativeWords, neutralWords, helpfulWords, unhelpfulWords, neutralHelpfulWords );
+checkTotalsToc = toc(checkTotalsTic)
+
+positiveCountTic = tic
+[ resultsPositiveWords ] = wordcount(positiveWords);
+positiveCountToc = toc(positiveCountTic)
+
+negativeCountTic = tic
+[ resultsNegativeWords ] = wordcount(negativeWords);
+negativeCountToc = toc(negativeCountTic)
+
+neutralCountTic = tic
+[ resultsNeutralWords ] = wordcount(neutralWords);
+neutralCountToc = toc(neutralCountTic)
+
+helpfulCountTic = tic
+[ resultsHelpfulWords ] = wordcount(helpfulWords);
+helpfulCountToc = toc(helpfulCountTic)
+
+unhelpfulCountTic = tic
+[ resultsUnhelpfulWords ] = wordcount(unhelpfulWords);
+unhelpfulCountToc = toc(unhelpfulCountTic)
+
+neutralHelpfulCountTic = tic
+[ resultsNeutralHelpfulWords ] = wordcount(neutralHelpfulWords);
+neutralHelpfulCountToc = toc(neutralHelpfulCountTic)
+
+[loadingToc splitTextToc helpfulTextToc positiveTextToc checkTotalsToc positiveCountToc negativeCountToc neutralCountToc helpfulCountToc unhelpfulCountToc neutralHelpfulCountToc]

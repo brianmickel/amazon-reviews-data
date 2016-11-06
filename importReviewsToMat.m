@@ -14,11 +14,16 @@
 % Summary - brief summary of the review
 % Text - text of the review
 
-tic
-filename = 'testReviews.csv';
-startRow = 2;
-endRow = 11;
-[Id,ProductId,UserId,ProfileName,HelpfulnessNumerator,HelpfulnessDenominator,Score,Time,Summary,Text] = importfile(filename, startRow, endRow)
-toc
 
-save('testVariableWorkspace')
+filename = 'Reviews.csv';
+startRow = 2;
+j = [1:12];
+numberOfDataPoints = 2.^j;
+
+for i = 1:12
+endRow = numberOfDataPoints(i)+1;
+[Id,ProductId,UserId,ProfileName,HelpfulnessNumerator,HelpfulnessDenominator,Score,Time,Summary,Text] = importfile(filename, startRow, endRow);
+
+workspaceName = ['timingWorkspace' num2str(numberOfDataPoints(i)) '.mat'];
+save(workspaceName)
+end
