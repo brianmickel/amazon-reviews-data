@@ -1,47 +1,54 @@
 % Main
 loadingTic  = tic
-load('testLargerVariableWorkspace.mat')
+load('timingWorkspace256.mat')
 loadingToc = toc(loadingTic)
 
 % createScoreBarChart( Score );
-splitTextTic = tic
+splitTextTic = tic;
 [ Text ] = splitTextBySpaces( Text );
-splitTextToc = toc(splitTextTic)
+splitTextToc = toc(splitTextTic);
 
-helpfulTextTic = tic
+helpfulTextTic = tic;
 [ helpfulWords, unhelpfulWords, neutralHelpfulWords ] = helpfulnessWordSplit( HelpfulnessNumerator, HelpfulnessDenominator, Text );
-helpfulTextToc = toc(helpfulTextTic)
+helpfulTextToc = toc(helpfulTextTic);
 
-positiveTextTic = tic
+positiveTextTic = tic;
 [ positiveWords, negativeWords, neutralWords ] = descriptorWordSplit( Score, Text );
-positiveTextToc = toc(positiveTextTic)
+positiveTextToc = toc(positiveTextTic);
 
-checkTotalsTic = tic
+checkTotalsTic = tic;
 checkWordTotals( positiveWords, negativeWords, neutralWords, helpfulWords, unhelpfulWords, neutralHelpfulWords );
-checkTotalsToc = toc(checkTotalsTic)
+checkTotalsToc = toc(checkTotalsTic);
 
-positiveCountTic = tic
-[ resultsPositiveWords ] = wordcount(positiveWords);
-positiveCountToc = toc(positiveCountTic)
+positiveCountTic = tic;
+[resultsPositiveWords, positiveTimingResults] = wordcountTimed(positiveWords);
+%[ resultsPositiveWords ] = wordcount(positiveWords);
+positiveCountToc = toc(positiveCountTic);
 
-negativeCountTic = tic
-[ resultsNegativeWords ] = wordcount(negativeWords);
-negativeCountToc = toc(negativeCountTic)
+negativeCountTic = tic;
+[resultsNegativeWords, negativeTimingResults] = wordcountTimed(negativeWords);
+%[ resultsNegativeWords ] = wordcount(negativeWords);
+negativeCountToc = toc(negativeCountTic);
 
-neutralCountTic = tic
-[ resultsNeutralWords ] = wordcount(neutralWords);
-neutralCountToc = toc(neutralCountTic)
+neutralCountTic = tic;
+[resultsNeutralWords, neutralTimingResults] = wordcountTimed(neutralWords);
+% [ resultsNeutralWords ] = wordcount(neutralWords);
+neutralCountToc = toc(neutralCountTic);
 
-helpfulCountTic = tic
-[ resultsHelpfulWords ] = wordcount(helpfulWords);
-helpfulCountToc = toc(helpfulCountTic)
+helpfulCountTic = tic;
+[resultsHelpfulWords, helpfulTimingResults] = wordcountTimed(helpfulWords);
+%[ resultsHelpfulWords ] = wordcount(helpfulWords);
+helpfulCountToc = toc(helpfulCountTic);
 
-unhelpfulCountTic = tic
-[ resultsUnhelpfulWords ] = wordcount(unhelpfulWords);
-unhelpfulCountToc = toc(unhelpfulCountTic)
+unhelpfulCountTic = tic;
+[resultsUnhelpfulWords, unhelpfulTimingResults] = wordcountTimed(unhelpfulWords);
+%[ resultsUnhelpfulWords ] = wordcount(unhelpfulWords);
+unhelpfulCountToc = toc(unhelpfulCountTic);
 
-neutralHelpfulCountTic = tic
-[ resultsNeutralHelpfulWords ] = wordcount(neutralHelpfulWords);
-neutralHelpfulCountToc = toc(neutralHelpfulCountTic)
+neutralHelpfulCountTic = tic;
+[resultsNeutralHelpfulWords, neutralHelpfulTimingResults] = wordcountTimed(neutralHelpfulWords);
+% [ resultsNeutralHelpfulWords ] = wordcount(neutralHelpfulWords);
+neutralHelpfulCountToc = toc(neutralHelpfulCountTic);
 
+[positiveTimingResults; negativeTimingResults; neutralTimingResults; helpfulTimingResults; unhelpfulTimingResults; neutralHelpfulTimingResults]
 [loadingToc splitTextToc helpfulTextToc positiveTextToc checkTotalsToc positiveCountToc negativeCountToc neutralCountToc helpfulCountToc unhelpfulCountToc neutralHelpfulCountToc]
