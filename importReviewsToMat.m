@@ -1,7 +1,6 @@
 %% Import data 
 % -- turn a csv into a .mat
 
-%
 % This dataset consists of a single CSV file, Reviews.csv. The columns in the table are:
 % Id
 % ProductId - unique identifier for the product
@@ -17,10 +16,10 @@
 
 filename = 'Reviews.csv';
 startRow = 2;
-j = [1:12];
+j = [1:16];
 numberOfDataPoints = 2.^j;
 
-for i = 1:12
+for i = 9:16
 endRow = numberOfDataPoints(i)+1;
 [Id,ProductId,UserId,ProfileName,HelpfulnessNumerator,HelpfulnessDenominator,Score,Time,Summary,Text] = importfile(filename, startRow, endRow);
 
