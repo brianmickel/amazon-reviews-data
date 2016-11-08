@@ -11,15 +11,15 @@ load('timingWorkspace64.mat')
 
 checkWordTotals( positiveWords, negativeWords, neutralWords, helpfulWords, unhelpfulWords, neutralHelpfulWords );
 
-[resultsPositiveWords, positiveTimingResults] = fasterWordCount(positiveWords);
+[resultsPositiveWords, positiveTimingResults] = fasterFasterWordCount(positiveWords);
 
-[resultsNegativeWords, negativeTimingResults] = fasterWordCount(negativeWords);
+[resultsNegativeWords, negativeTimingResults] = fasterFasterWordCount(negativeWords);
 
-[resultsNeutralWords, neutralTimingResults] = fasterWordCount(neutralWords);
+[resultsNeutralWords, neutralTimingResults] = fasterFasterWordCount(neutralWords);
 
-[resultsHelpfulWords, helpfulTimingResults] = fasterWordCount(helpfulWords);
+[resultsHelpfulWords, helpfulTimingResults] = fasterFasterWordCount(helpfulWords);
 
-[resultsUnhelpfulWords, unhelpfulTimingResults] = fasterWordCount(unhelpfulWords);
+[resultsUnhelpfulWords, unhelpfulTimingResults] = fasterFasterWordCount(unhelpfulWords);
 
-[resultsNeutralHelpfulWords, neutralHelpfulTimingResults] = fasterWordCount(neutralHelpfulWords);
+[resultsNeutralHelpfulWords, neutralHelpfulTimingResults] = fasterFasterWordCount(neutralHelpfulWords);
 toc

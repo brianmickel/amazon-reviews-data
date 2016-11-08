@@ -11,11 +11,11 @@ splitTextTic = tic;
 splitTextToc = toc(splitTextTic);
 
 helpfulTextTic = tic;
-[ helpfulWords, unhelpfulWords, neutralHelpfulWords ] = helpfulnessWordSplit( HelpfulnessNumerator, HelpfulnessDenominator, Text );
+[ helpfulWords, unhelpfulWords, neutralHelpfulWords ] = fasterHelpfulnessWordSplit( HelpfulnessNumerator, HelpfulnessDenominator, Text );
 helpfulTextToc = toc(helpfulTextTic);
 
 positiveTextTic = tic;
-[ positiveWords, negativeWords, neutralWords ] = descriptorWordSplit( Score, Text );
+[ positiveWords, negativeWords, neutralWords ] = fasterDescriptorWordSplit( Score, Text );
 positiveTextToc = toc(positiveTextTic);
 
 checkTotalsTic = tic;
