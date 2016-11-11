@@ -5,27 +5,27 @@ function [ elapsedTime ] = testMainOnMultipleWorkspaces( filename )
 startTic = tic;
 loadTic = tic;
 load(filename)
-loadToc = toc(loadTic);
+loadToc = toc(loadTic)
 % createScoreBarChart( Score );
 %% split
 wordSplitTic = tic;
 splitBySpacesTic = tic;
-[ Text ] = splitTextBySpaces( Text );
-splitBySpacesToc = toc(splitBySpacesTic);
+[ Text ] = fasterSplitTextBySpaces( Text );
+splitBySpacesToc = toc(splitBySpacesTic)
 
 helpSplitTic = tic;
 [ helpfulWords, unhelpfulWords, neutralHelpfulWords ] = fasterFasterHelpfulnessWordSplit( HelpfulnessNumerator, HelpfulnessDenominator, Text );
-helpSplitToc = toc(helpSplitTic);
+helpSplitToc = toc(helpSplitTic)
 
 posSplitTic = tic;
 [ positiveWords, negativeWords, neutralWords ] = fasterFasterDescriptorWordSplit( Score, Text );
-posSplitToc = toc(posSplitTic);
+posSplitToc = toc(posSplitTic)
 
 checkTic = tic;
 checkWordTotals( positiveWords, negativeWords, neutralWords, helpfulWords, unhelpfulWords, neutralHelpfulWords );
-checkToc = toc(checkTic);
+checkToc = toc(checkTic)
 
-wordSplitToc = toc(wordSplitTic);
+wordSplitToc = toc(wordSplitTic)
 
 %% word count
 wordCountTic = tic;
@@ -42,13 +42,13 @@ wordCountTic = tic;
 
 [resultsNeutralHelpfulWords, neutralHelpfulTimingResults] = fasterFasterWordCount(neutralHelpfulWords);
 
-wordCountToc = toc(wordCountTic);
+wordCountToc = toc(wordCountTic)
 %%
-overallTimeToc = toc(startTic);
+overallTimeToc = toc(startTic)
 
 elapsedTime = [loadToc splitBySpacesToc helpSplitToc posSplitToc checkToc wordSplitToc wordCountToc overallTimeToc];
 
-%save('results4096.mat')
+%save('resultsAll.mat')
 
 end
 

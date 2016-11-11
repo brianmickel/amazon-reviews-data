@@ -16,12 +16,12 @@ end
 % make pretty below
 
 %% Get rid of all the characters that are not letters or numbers
-for i=1:size(Text,1)
-    for j = 1:size(Text{i,2},1)
-        ind = find(isstrprop(Text{i,2}{j}, 'alphanum') == 0);
-        Text{i,2}{j}(ind)=[];
-    end
-end
+% for i=1:size(Text,1)
+%     for j = 1:size(Text{i,2},1)
+%         ind = find(isstrprop(Text{i,2}{j}, 'alphanum') == 0);
+%         Text{i,2}{j}(ind)=[];
+%     end
+% end
 
 %% Remove entries in words that have zero characters
 % for i = 1:size(Text,1)

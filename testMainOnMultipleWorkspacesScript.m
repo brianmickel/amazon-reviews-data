@@ -1,6 +1,6 @@
 % testMainOnMultipleWorkspacesScript
 
-maximumSize = 15;
+maximumSize = 16;
 j = [1:maximumSize];
 numberOfDataPoints = 2.^j;
 
